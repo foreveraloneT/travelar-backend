@@ -1,0 +1,46 @@
+{
+	"id": "f270aa6b-5f49-9ce7-5769-5e032c8a5cd9",
+	"name": "Trips",
+	"description": "",
+	"order": [
+		"418065d5-f867-cdbf-a0a4-9c2b6af10074"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1549899156521,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "418065d5-f867-cdbf-a0a4-9c2b6af10074",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://us-central1-travela-dev-54075.cloudfunctions.net/trips",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "f270aa6b-5f49-9ce7-5769-5e032c8a5cd9",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Create Trip",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1549899198633,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"name\": \"First Trips\",\n\t\"detail\": \"aloha.......\"\n}"
+		}
+	]
+}
