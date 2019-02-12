@@ -1,4 +1,4 @@
-const BaseModel = require('../../utils/BaseModel')
+const BaseModel = require('./BaseModel')
 
 class Missions extends BaseModel {
   constructor() {

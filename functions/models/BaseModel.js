@@ -1,5 +1,5 @@
 const moment = require('moment')
-const admin = require('../services/admin')
+const admin = require('../firebase/admin')
 const { pick } = require('lodash')
 
 class BaseModel {

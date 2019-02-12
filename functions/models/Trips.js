@@ -1,7 +1,6 @@
 const { omit } = require('lodash')
 
-const admin = require('../../services/admin')
-const BaseModel = require('../../utils/BaseModel')
+const BaseModel = require('./BaseModel')
 const Missions = require('./Missions')
 
 class Trips extends BaseModel {
@@ -11,6 +10,7 @@ class Trips extends BaseModel {
       name: '',
       detail: '',
       status: 'disable',
+      missions: [],
       // expiredDate: '',
       // extraPoint: 0,
       // latitude: 0,
