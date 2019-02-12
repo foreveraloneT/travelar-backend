@@ -1,19 +1,42 @@
-const moment = require('moment')
-const admin = require('../../services/admin')
+const { omit } = require('lodash')
 
-class Trips {
-  create(params) {
-    const { name, detail } = params
-    const data = {
-      name,
-      detail,
-      createAt: moment().format(),
-      updateAt: '',
+const admin = require('../../services/admin')
+const BaseModel = require('../../utils/BaseModel')
+const Missions = require('./Missions')
+
+class Trips extends BaseModel {
+  constructor() {
+    super()
+    this._default = {
+      name: '',
+      detail: '',
+      status: 'disable',
+      // expiredDate: '',
+      // extraPoint: 0,
+      // latitude: 0,
+      // logitude: 0,
     }
-    
-    return admin.firestore().collection('trips')
-      .add(data)
-      .then(docRef => Object.assign({ id: docRef.id }, data))
+    this.collection = 'trips'
+  }
+
+  create(item) {
+    const missions = [
+      {
+        name: 'test m1',
+        detail: 'test1'
+      },
+      {
+        name: 'test m2',
+        detail: 'test2'
+      }
+    ]
+    return Promise.all(missions.map(mission => Missions.create(mission)))
+      .then((missionRefs) => {
+        const enhancedItem = Object.assign(item, {
+          missions: missionRefs.map(missionRef => missionRef.id)
+        })
+        return super.create(enhancedItem)
+      })
   }
 }
 
