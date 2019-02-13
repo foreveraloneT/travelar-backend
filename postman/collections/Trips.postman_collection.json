@@ -22,25 +22,23 @@
 					"enabled": true
 				}
 			],
-			"url": "https://us-central1-travela-dev-54075.cloudfunctions.net/trips",
+			"url": "{{host}}/trips",
 			"queryParams": [],
+			"preRequestScript": null,
 			"pathVariables": {},
 			"pathVariableData": [],
-			"preRequestScript": null,
 			"method": "POST",
-			"collectionId": "f270aa6b-5f49-9ce7-5769-5e032c8a5cd9",
 			"data": [],
 			"dataMode": "raw",
-			"name": "Create Trip",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1549899198633,
-			"version": 2,
-			"responses": [],
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"rawModeData": "{\n\t\"name\": \"First Trips\",\n\t\"detail\": \"aloha.......\"\n}"
+			"time": 1550065620566,
+			"name": "Create Trip",
+			"description": "",
+			"collectionId": "f270aa6b-5f49-9ce7-5769-5e032c8a5cd9",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\": \"Train to Chiang Mai\",\n\t\"detail\": \"Hackatrain, you can not sleep\",\n\t\"status\": \"disable\",\n\t\"missions\": [\n\t\t{\n\t\t\t\"name\": \"Go to Work at the Morning\",\n\t\t\t\"detail\": \"Meh!\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"On the Train !\",\n\t\t\t\"detail\": \"Go Go Go\"\n\t\t}\n\t]\n}"
 		}
 	]
 }

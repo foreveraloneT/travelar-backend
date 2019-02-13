@@ -10,7 +10,7 @@ class Trips extends BaseModel {
       name: '',
       detail: '',
       status: 'disable',
-      missions: [],
+      missionsCount: 0,
       // expiredDate: '',
       // extraPoint: 0,
       // latitude: 0,

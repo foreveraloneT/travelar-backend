@@ -1,9 +1,12 @@
+const { omit } = require('lodash')
+
 const { data: dataView } = require('../views')
 
 class BaseEntity {
   constructor(data) {
-    this.data = data
+    this.data = omit(data, ['docRef'])
     this.view = dataView
+    this.docRef = data.docRef
   }
 
   get id() {
@@ -11,7 +14,9 @@ class BaseEntity {
   }
 
   response() {
-    return this.view(this.data)
+    return new Promise((resolve) => 
+      resolve(this.view(this.data))
+    )
   }
 }
 

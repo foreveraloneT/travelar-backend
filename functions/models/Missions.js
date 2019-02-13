@@ -6,6 +6,7 @@ class Missions extends BaseModel {
     this._default = {
       name: '',
       detail: '',
+      order: 0,
       // objective: '',
       // expiredDate: '',
       // checkIn: true,
