@@ -1,3 +1,4 @@
+const { toNumber } = require('lodash')
 const moment = require('moment')
 const { pick, isString, isNull } = require('lodash')
 
@@ -11,7 +12,7 @@ class BaseModel {
   }
 
   _getNow() {
-    return moment().format()
+    return toNumber(moment().format('x'))
   }
 
   // for deep down structure
@@ -30,7 +31,7 @@ class BaseModel {
   create(item) {
     const data = Object.assign(this._default, item, {
       createAt: this._getNow(),
-      updateAt: '',
+      updateAt: 0,
     })
 
     return this.collectionRef.add(data)
@@ -48,7 +49,7 @@ class BaseModel {
       })
   }
 
-  get(where = [], orderBy = [], limit = 0) {
+  get(where = [], orderBy = ['createAt', 'desc'], limit = 0) {
     let query = this.collectionRef
     where.forEach((whereClause) => {
       query = query.where(...whereClause)
@@ -65,7 +66,7 @@ class BaseModel {
       ))
   }
 
-  getAll(orderBy = []) {
+  getAll(orderBy = ['createAt', 'desc']) {
     return this.get([], orderBy)
   }
 }
