@@ -48,11 +48,25 @@ class BaseModel {
       })
   }
 
-  getAll() {
-    return this.collectionRef.get()
+  get(where = [], orderBy = [], limit = 0) {
+    let query = this.collectionRef
+    where.forEach((whereClause) => {
+      query = query.where(...whereClause)
+    })
+    if (orderBy.length > 0) {
+      query = query.orderBy(...orderBy)
+    }
+    if (limit > 0) {
+      query = query.limit(limit)
+    }
+    return query.get()
       .then(querySnapshot => querySnapshot.docs.map(doc =>
         Object.assign({ id: doc.id }, doc.data())
       ))
+  }
+
+  getAll(orderBy = []) {
+    return this.get([], orderBy)
   }
 }
 

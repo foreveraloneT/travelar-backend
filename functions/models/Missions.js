@@ -18,6 +18,10 @@ class Missions extends BaseModel {
     }
     this.collection = 'missions'
   }
+
+  getAll(orderBy = ['order', 'asc']) {
+    return super.getAll(orderBy)
+  }
 }
 
 module.exports = new Missions

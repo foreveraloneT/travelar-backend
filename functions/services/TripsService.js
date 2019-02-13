@@ -22,8 +22,8 @@ class TripsService extends BaseService {
       .then((tripsEntity) => {
         tripRef = tripsEntity.docRef
         MissionsService.setModelDocRef(tripRef)
-        return Promise.all(missions.map(mission =>
-          MissionsService.create(mission))
+        return Promise.all(missions.map((mission, order) =>
+          MissionsService.create(Object.assign({ order }, mission)))
         )
       })
       .then(() => this.getById(tripRef.id))
