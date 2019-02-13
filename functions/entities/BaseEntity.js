@@ -1,26 +1,17 @@
-const { isArray } = require('lodash')
-
 const { data: dataView } = require('../views')
 
 class BaseEntity {
   constructor(data) {
-    this._data = data
+    this.data = data
+    this.view = dataView
   }
 
-  getList() {
-    return this._data
-  }
-
-  getOne() {
-    return this._data
-  }
-
-  get() {
-    return isArray(this._data) ? this.getList() : this.getOne()
+  get id() {
+    return this.data.id || ''
   }
 
   response() {
-    return dataView(this.get())
+    return this.view(this.data)
   }
 }
 

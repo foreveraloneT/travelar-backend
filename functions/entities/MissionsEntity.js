@@ -1,5 +1,3 @@
-const { isArray } = require('lodash')
-
 const BaseEntity = require('./BaseEntity')
 
 class MissionsEntity extends BaseEntity {

@@ -15,7 +15,7 @@ class TripsService extends BaseService {
     return Promise.all(missions.map(mission => MissionsService.create(mission)))
       .then((missionEntities) => {
         const enhanceParams = Object.assign(params, {
-          missions: missionEntities.map(missionEntity => missionEntity.getOne().id)
+          missions: missionEntities.map(missionEntity => missionEntity.id)
         })
         return super.create(enhanceParams)
       })
