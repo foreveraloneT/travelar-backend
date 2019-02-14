@@ -1,4 +1,4 @@
-const { omit } = require('lodash')
+const { omit, get } = require('lodash')
 
 const BaseService = require('./BaseService')
 const Trips = require('../models/Trips')
@@ -21,7 +21,13 @@ class TripsService extends BaseService {
     const selectedParams = omit(params, ['missions'])
     const { missions } = params
     let tripRef = null
-    return super.create(Object.assign({ missionsCount: missions.length }, selectedParams))
+    const missionsCount = missions.length
+    const totalPoint = missions.reduce((sum, mission) => {
+      const checkInPoint = get(mission, 'checkIn.point', 0)
+      const photoPoint = get(mission, 'photo.point', 0)
+      return sum + checkInPoint + photoPoint
+    }, 0)
+    return super.create(Object.assign({ missionsCount, totalPoint }, selectedParams))
       .then((tripsEntity) => {
         tripRef = tripsEntity.docRef
         MissionsService.setModelDocRef(tripRef)
@@ -32,8 +38,23 @@ class TripsService extends BaseService {
       .then(() => this.getById(tripRef.id))
   }
 
+  get(params) {
+    if (params.isFeature) {
+      params.isFeature = params.isFeature === 'true'
+    }
+    return super.get(params)
+  }
+
   publish(id) {
     return this.updateById(id, { status: 'published' })
+  }
+
+  setFeature(id) {
+    return this.updateById(id, { isFeature: true })
+  }
+
+  unsetFeature(id) {
+    return this.updateById(id, { isFeature: false })
   }
 }
 

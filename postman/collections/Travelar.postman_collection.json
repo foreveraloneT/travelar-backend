@@ -20,7 +20,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Train to Chiang Mai\",\n\t\"detail\": \"Hackatrain, you can not sleep\",\n\t\"status\": \"disable\",\n\t\"missions\": [\n\t\t{\n\t\t\t\"name\": \"Go to Work at the Morning\",\n\t\t\t\"detail\": \"Meh!\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"On the Train !\",\n\t\t\t\"detail\": \"Go Go Go\"\n\t\t}\n\t]\n}"
+							"raw": "{\n\t\"name\": \"Train to Chiang Mai :))\",\n\t\"detail\": \"Hackatrain, you can not sleep :))\",\n\t\"coverPicture\": \"https://firebasestorage.googleapis.com/v0/b/travela-dev-54075.appspot.com/o/trips%2FHua-Lamphong-01.jpg?alt=media&token=cca09766-d483-4697-884f-1cbef08894aa\",\n\t\"keywords\": [\"Bangkok\", \"Chiang Mai\"],\n\t\"status\": \"unpublished\",\n\t\"isFeature\": false,\n\t\"extraPoint\": 500,\n\t\"missions\": [\n\t\t{\n\t\t\t\"name\": \"Go to Work at the Morning :(\",\n\t\t\t\"detail\": \"Meh :((((\",\n\t\t\t\"photo\": {\n\t\t\t\t\"objective\": \"Take photo for your ticket.\",\n\t\t\t\t\"point\": 100\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\t\"name\": \"On the Train !!!!\",\n\t\t\t\"detail\": \"Go Go Go\",\n\t\t\t\"checkIn\": {\n\t\t\t\t\"objective\": \"Check-in at Hua Lum Pong statation.\",\n\t\t\t\t\"point\": 100,\n\t\t\t\t\"latitude\": 13.7391976,\n\t\t\t\t\"longitude\": 100.5227214\n\t\t\t},\n\t\t\t\"photo\": {\n\t\t\t\t\"objective\": \"Take photo for your ticket.\",\n\t\t\t\t\"point\": 150\n\t\t\t}\n\t\t}\n\t]\n}"
 						},
 						"url": {
 							"raw": "{{host}}/trips",
@@ -44,7 +44,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{host}}/trips",
+							"raw": "{{host}}/trips?status=published&isFeature=true",
 							"host": [
 								"{{host}}"
 							],
@@ -55,8 +55,12 @@
 								{
 									"key": "status",
 									"value": "published",
-									"description": "published or unpublished",
-									"disabled": true
+									"description": "published or unpublished"
+								},
+								{
+									"key": "isFeature",
+									"value": "true",
+									"description": "true or false"
 								}
 							]
 						}
@@ -95,13 +99,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{host}}/trips/3zUY9kok825ahyZb2YPk",
+							"raw": "{{host}}/trips/wAulUIYTmOcIH0pm86gW",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"trips",
-								"3zUY9kok825ahyZb2YPk"
+								"wAulUIYTmOcIH0pm86gW"
 							]
 						}
 					},
@@ -117,14 +121,113 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{host}}/trips/3zUY9kok825ahyZb2YPk/publish",
+							"raw": "{{host}}/trips/wAulUIYTmOcIH0pm86gW/publish",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"trips",
-								"3zUY9kok825ahyZb2YPk",
+								"wAulUIYTmOcIH0pm86gW",
 								"publish"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Feature Trip",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/trips/wAulUIYTmOcIH0pm86gW/set-feature",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"trips",
+								"wAulUIYTmOcIH0pm86gW",
+								"set-feature"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unfeature Trip",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/trips/wAulUIYTmOcIH0pm86gW/unset-feature",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"trips",
+								"wAulUIYTmOcIH0pm86gW",
+								"unset-feature"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Missions",
+			"item": [
+				{
+					"name": "Get Mission by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/trips/wAulUIYTmOcIH0pm86gW/missions/v2qhSMNl5cS2AK48A44D",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"trips",
+								"wAulUIYTmOcIH0pm86gW",
+								"missions",
+								"v2qhSMNl5cS2AK48A44D"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Trips",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/trips/wAulUIYTmOcIH0pm86gW/missions/all",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"trips",
+								"wAulUIYTmOcIH0pm86gW",
+								"missions",
+								"all"
 							]
 						}
 					},

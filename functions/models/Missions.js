@@ -6,15 +6,9 @@ class Missions extends BaseModel {
     this._default = {
       name: '',
       detail: '',
+      checkIn: {},
+      photo: {},
       order: 0,
-      // objective: '',
-      // expiredDate: '',
-      // checkIn: true,
-      // picture: true,
-      // checkInPoint: 0,
-      // picturePoint: 0,
-      // latitude: 0,
-      // logitude: 0,
     }
     this.collection = 'missions'
   }

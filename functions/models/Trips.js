@@ -11,10 +11,11 @@ class Trips extends BaseModel {
       detail: '',
       status: 'unpublished',
       missionsCount: 0,
-      // expiredDate: '',
-      // extraPoint: 0,
-      // latitude: 0,
-      // logitude: 0,
+      totalPoint: 0,
+      extraPoint: 0,
+      keywords: [],
+      coverPicture: '',
+      isFeature: false,
     }
     this.collection = 'trips'
   }
