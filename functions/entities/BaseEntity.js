@@ -5,7 +5,7 @@ const { data: dataView } = require('../views')
 class BaseEntity {
   constructor(data) {
     this.data = omit(data, ['docRef'])
-    this.view = dataView
+    this._view = dataView
     this.docRef = data.docRef
   }
 
@@ -15,7 +15,7 @@ class BaseEntity {
 
   response() {
     return new Promise((resolve) => 
-      resolve(this.view(this.data))
+      resolve(this._view(this.data))
     )
   }
 }

@@ -6,6 +6,9 @@ const TripsEntity = require('../entities/TripsEntity')
 const TripsCollection = require('../collections/TripsCollection')
 const MissionsService = require('./MissionsService')
 
+const STATUS = {
+  PUBLISHED: 'published'
+}
 class TripsService extends BaseService {
   constructor() {
     super()
@@ -27,6 +30,10 @@ class TripsService extends BaseService {
         )
       })
       .then(() => this.getById(tripRef.id))
+  }
+
+  publish(id) {
+    return this.updateById(id, { status: 'published' })
   }
 }
 

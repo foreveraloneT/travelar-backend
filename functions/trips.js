@@ -13,14 +13,33 @@ app.use(bodyParser.json())
 
 app.post('/', (req, res) =>
   TripsService.create(req.body)
-    .then(entity => entity.response())
+    .then(result => result.response())
+    .then(response => res.send(response))
+)
+
+app.put('/:id/publish', (req, res) => 
+  TripsService.publish(req.params.id)
+    .then(result => result.response())
     .then(response => res.send(response))
 )
 
 app.get('/', (req, res) =>
-TripsService.getAll()
-  .then(collection => collection.response())
-  .then(response => res.send(response))
+  TripsService.get(req.query)
+    .then(result => result.response())
+    .then(response => res.send(response))
 )
+
+app.get('/all', (req, res) =>
+  TripsService.getAll()
+    .then(result => result.response())
+    .then(response => res.send(response))
+)
+
+app.get('/:id', (req, res) =>
+  TripsService.getById(req.params.id)
+    .then(result => result.response())
+    .then(response => res.send(response))
+)
+
 
 module.exports = functions.https.onRequest(autoSlash(app))

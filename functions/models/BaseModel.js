@@ -1,6 +1,6 @@
 const { toNumber } = require('lodash')
 const moment = require('moment')
-const { pick, isString, isNull } = require('lodash')
+const { isNull } = require('lodash')
 
 const admin = require('../firebase/admin')
 
@@ -38,6 +38,16 @@ class BaseModel {
       .then(docRef => Object.assign({ docRef, id: docRef.id }, data))
   }
 
+  updateById(id, edit = {}) {
+    const docRef = this.collectionRef.doc(id)
+    const data = Object.assign({
+      updateAt: this._getNow(),
+    }, edit)
+
+    return docRef.set(data, { merge: true })
+      .then(() => Object.assign({ docRef, id }, data))
+  }
+
   getById(id) {
     const docRef = this.collectionRef.doc(id)
     return docRef.get()
@@ -54,6 +64,7 @@ class BaseModel {
     where.forEach((whereClause) => {
       query = query.where(...whereClause)
     })
+
     if (orderBy.length > 0) {
       query = query.orderBy(...orderBy)
     }

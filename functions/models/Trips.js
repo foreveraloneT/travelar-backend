@@ -9,7 +9,7 @@ class Trips extends BaseModel {
     this._default = {
       name: '',
       detail: '',
-      status: 'disable',
+      status: 'unpublished',
       missionsCount: 0,
       // expiredDate: '',
       // extraPoint: 0,

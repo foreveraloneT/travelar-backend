@@ -3,12 +3,12 @@ const { data: dataView } = require('../views')
 class BaseCollection {
   constructor(data) {
     this.data = data
-    this.view = dataView
+    this._view = dataView
   }
 
   response() {
     return new Promise((resolve) => 
-      resolve(this.view(this.data))
+      resolve(this._view(this.data))
     )
   }
 }

@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "b3287164-4307-49b9-bc8a-f87973bcc180",
+		"name": "Travelar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Trips",
+			"item": [
+				{
+					"name": "Create Trip",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Train to Chiang Mai\",\n\t\"detail\": \"Hackatrain, you can not sleep\",\n\t\"status\": \"disable\",\n\t\"missions\": [\n\t\t{\n\t\t\t\"name\": \"Go to Work at the Morning\",\n\t\t\t\"detail\": \"Meh!\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"On the Train !\",\n\t\t\t\"detail\": \"Go Go Go\"\n\t\t}\n\t]\n}"
+						},
+						"url": {
+							"raw": "{{host}}/trips",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"trips"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Trips",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/trips",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"trips"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "published",
+									"description": "published or unpublished",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Trips",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/trips/all",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"trips",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Trip by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/trips/3zUY9kok825ahyZb2YPk",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"trips",
+								"3zUY9kok825ahyZb2YPk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publish Trip",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/trips/3zUY9kok825ahyZb2YPk/publish",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"trips",
+								"3zUY9kok825ahyZb2YPk",
+								"publish"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "3cf7e9bc-1fbb-43df-886e-add2ef8fadfe",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "ec1750fc-1031-4800-a101-7a61f6df9013",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
