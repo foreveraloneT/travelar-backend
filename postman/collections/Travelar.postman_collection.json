@@ -21,7 +21,8 @@
 			"description": "",
 			"collectionId": "8cc33d2d-d2cb-f67c-5732-fa7022bd71f4",
 			"order": [
-				"42a209d5-3c80-4c99-880c-bff735cf69a1"
+				"42a209d5-3c80-4c99-880c-bff735cf69a1",
+				"a51062ad-3d2c-0e9f-7a2c-49a827fbcd91"
 			],
 			"owner": "518131",
 			"folders_order": [],
@@ -210,6 +211,34 @@
 			"headerData": [],
 			"collection_id": "8cc33d2d-d2cb-f67c-5732-fa7022bd71f4",
 			"folder": "530a9e0f-ba48-965f-d435-88dbf4f1ee8d"
+		},
+		{
+			"id": "a51062ad-3d2c-0e9f-7a2c-49a827fbcd91",
+			"headers": "X-User: xwQtHnECtsWFxGQs7v6Bp9tLnRq1\n",
+			"headerData": [
+				{
+					"key": "X-User",
+					"value": "xwQtHnECtsWFxGQs7v6Bp9tLnRq1",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/myTrips",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1550244160902,
+			"name": "GET List My Trips",
+			"description": "",
+			"collectionId": "8cc33d2d-d2cb-f67c-5732-fa7022bd71f4",
+			"responses": []
 		},
 		{
 			"id": "a51d07f7-b58a-0e15-4f4b-341c4243d35a",
