@@ -26,6 +26,14 @@ class MyTripsService extends BaseService {
         return super.create(enhanceParams)
       })
   }
+
+  get(params) {
+    const enhanceParams = Object.assign({
+      userId: this.authUerId
+    }, params)
+
+    return super.get(enhanceParams)
+  }
 }
 
 module.exports = new MyTripsService

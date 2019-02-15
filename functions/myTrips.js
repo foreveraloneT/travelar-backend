@@ -23,6 +23,14 @@ app.post('/', (req, res) =>
     .then(response => res.send(response))
 )
 
+app.get('/', (req, res) =>
+  MyTripsService
+    .setAuthUser(req.get('X-User'))
+    .get(req.query)
+    .then(result => result.response())
+    .then(response => res.send(response))
+)
+
 // my mission
 
 // app.get('/:tripId/missions/all', (req, res) =>
