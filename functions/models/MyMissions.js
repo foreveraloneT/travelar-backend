@@ -5,13 +5,13 @@ class MyMissions extends BaseModel {
     super()
     this._default = {
       tripId: "",
+      missionId: "",
       userId: "",
       photo: {},
       checkIn: {},
-      status: "in-progress" // "in-progress" "completed" "fail"
     }
     this.collection = 'myMissions'
   }
 }
 
-module.exports = MyMissions
+module.exports = new MyMissions

@@ -1,4 +1,4 @@
-const { omit, isEmpty } = require('lodash')
+const { omit, isEmpty, cloneDeep } = require('lodash')
 
 const BaseService = require('./BaseService')
 const MyTrips = require('../models/MyTrips')
@@ -16,15 +16,48 @@ class MyTripsService extends BaseService {
     this._Collection = MyTripsCollection
   }
 
+  // _createMyTrips(params) {
+  //   return TripsService.getById(params.tripId)
+  //     .then((tripEntity) => {
+  //       const enhanceParams = Object.assign({
+  //         userId: this.authUserId
+  //       }, omit(tripEntity.data, ['status']), params)
+    
+  //       return super.create(enhanceParams)
+  //     })
+  // }
+
   _createMyTrips(params) {
+    let returnEntity = null
     return TripsService.getById(params.tripId)
       .then((tripEntity) => {
         const enhanceParams = Object.assign({
           userId: this.authUserId
         }, omit(tripEntity.data, ['status']), params)
     
-        return super.create(enhanceParams)
+        return Promise.all([
+          super.create(enhanceParams),
+          MissionsService.setModelDocRef(tripEntity.docRef).getAll(),
+        ])
       })
+      .then(([entity, missionsCollection]) => {
+        returnEntity = entity
+        return Promise.all(missionsCollection.data.map(mission => {
+          let myMission = {
+            tripId: params.tripId,
+            userId: this.authUserId,
+            missionId: mission.id,
+          }
+          if (!isEmpty(mission.photo)) {
+            myMission.photo = { status: 'not-started' }
+          }
+          if (!isEmpty(mission.checkIn)) {
+            myMission.checkIn = { status: 'not-started' }
+          }
+          return MyMissionsService.create(myMission)
+        }))
+      })
+      .then(() => returnEntity)
   }
 
   create(params) {
