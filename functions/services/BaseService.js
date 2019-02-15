@@ -5,6 +5,7 @@ class BaseService {
     this._model = null
     this._Entity = null
     this._Collection = null
+    this.authUerId = ''
   }
 
   setModelDocRef(docRef) {
@@ -12,8 +13,18 @@ class BaseService {
     return this
   }
 
+  setAuthUser(id) {
+    this.authUerId = id
+    return this
+  }
+
   create(params) {
     return this._model.create(params)
+      .then(data => new this._Entity(data))
+  }
+
+  createById(id, params) {
+    return this._model.createById(id, params)
       .then(data => new this._Entity(data))
   }
 
@@ -39,7 +50,7 @@ class BaseService {
     const limit = 0
     const where = Object.keys(omit(params, restricts))
       .map(key => ([key, '==', params[key]]))
-    
+
     return this._model.get(where, order, limit)
       .then(data => new this._Collection(data))
   }
@@ -47,6 +58,14 @@ class BaseService {
   getAll() {
     return this._model.getAll()
       .then(data => new this._Collection(data))
+  }
+
+  getOne(params) {
+    const where = Object.keys(params)
+      .map(key => ([key, '==', params[key]]))
+    
+    return this._model.getOne(where)
+      .then(data => new this._Entity(data))
   }
 }
 

@@ -38,6 +38,18 @@ class BaseModel {
       .then(docRef => Object.assign({ docRef, id: docRef.id }, data))
   }
 
+  createById(id, item) {
+    const data = Object.assign(this._default, item, {
+      createAt: this._getNow(),
+      updateAt: 0,
+    })
+
+    const docRef = this.collectionRef.doc(id)
+
+    return docRef.set(data)
+      .then(() => Object.assign({ docRef, id }, data))
+  }
+
   updateById(id, edit = {}) {
     const docRef = this.collectionRef.doc(id)
     const data = Object.assign({
@@ -75,6 +87,19 @@ class BaseModel {
       .then(querySnapshot => querySnapshot.docs.map(doc =>
         Object.assign({ id: doc.id }, doc.data())
       ))
+  }
+
+  getOne(where) {
+    let query = this.collectionRef
+    where.forEach((whereClause) => {
+      query = query.where(...whereClause)
+    })
+
+    return query.get()
+      .then(querySnapshot => Object.assign({
+        id: doc.id,
+        docRef: this.collectionRef().doc(doc.id)
+      }, querySnapshot.docs[0].data()))
   }
 
   getAll(orderBy = ['createAt', 'desc']) {

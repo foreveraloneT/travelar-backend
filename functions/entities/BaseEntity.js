@@ -7,10 +7,16 @@ class BaseEntity {
     this.data = omit(data, ['docRef'])
     this._view = dataView
     this.docRef = data.docRef
+    this.authUerId = ''
   }
 
   get id() {
     return this.data.id || ''
+  }
+
+  setAuthUser(id) {
+    this.authUerId = id
+    return this
   }
 
   response() {
