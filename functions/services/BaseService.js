@@ -5,7 +5,7 @@ class BaseService {
     this._model = null
     this._Entity = null
     this._Collection = null
-    this.authUerId = ''
+    this.authUserId = ''
   }
 
   setModelDocRef(docRef) {
@@ -14,7 +14,7 @@ class BaseService {
   }
 
   setAuthUser(id) {
-    this.authUerId = id
+    this.authUserId = id || ''
     return this
   }
 

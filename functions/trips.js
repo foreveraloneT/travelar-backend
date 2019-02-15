@@ -34,7 +34,8 @@ app.get('/all', (req, res) =>
 )
 
 app.get('/:id', (req, res) =>
-  TripsService.getById(req.params.id)
+  TripsService.setAuthUser(req.get('X-User'))
+    .getById(req.params.id)
     .then(result => result.response())
     .then(response => res.send(response))
 )

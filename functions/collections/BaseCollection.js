@@ -4,11 +4,11 @@ class BaseCollection {
   constructor(data) {
     this.data = data
     this._view = dataView
-    this.authUerId = ''
+    this.authUserId = ''
   }
 
   setAuthUser(id) {
-    this.authUerId = id
+    this.authUserId = id || ''
     return this
   }
 

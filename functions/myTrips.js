@@ -8,8 +8,6 @@ const MyMissionsService = require('./services/MyMissionsService')
 const autoSlash = require('./utils/autoSlash')
 const admin = require('./firebase/admin')
 
-const tripsCollectionRef = admin.firestore().collection('trips')
-
 const app = express()
 app.use(cors({ origin: true }))
 app.use(bodyParser.urlencoded({ extended: true }))

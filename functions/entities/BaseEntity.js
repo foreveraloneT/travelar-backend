@@ -7,7 +7,7 @@ class BaseEntity {
     this.data = omit(data, ['docRef'])
     this._view = dataView
     this.docRef = data.docRef
-    this.authUerId = ''
+    this.authUserId = ''
   }
 
   get id() {
@@ -15,7 +15,7 @@ class BaseEntity {
   }
 
   setAuthUser(id) {
-    this.authUerId = id
+    this.authUserId = id
     return this
   }
 

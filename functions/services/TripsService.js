@@ -45,6 +45,11 @@ class TripsService extends BaseService {
     return super.get(params)
   }
 
+  getById(id) {
+    return super.getById(id)
+      .then(entity => entity.setAuthUser(this.authUserId))
+  }
+
   publish(id) {
     return this.updateById(id, { status: 'published' })
   }
