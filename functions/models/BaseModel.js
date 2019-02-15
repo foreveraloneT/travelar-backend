@@ -96,10 +96,16 @@ class BaseModel {
     })
 
     return query.get()
-      .then(querySnapshot => Object.assign({
-        id: doc.id,
-        docRef: this.collectionRef().doc(doc.id)
-      }, querySnapshot.docs[0].data()))
+      .then((querySnapshot) => {
+        const { docs } = querySnapshot
+        if (docs.length > 0) {
+          return Object.assign({
+            id: docs[0].id,
+            docRef: this.collectionRef.doc(docs[0].id)
+          }, docs[0].data())
+        }
+        return { docRef: null }
+      })
   }
 
   getAll(orderBy = ['createAt', 'desc']) {

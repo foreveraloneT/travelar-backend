@@ -8,7 +8,7 @@ admin.initializeApp({
 });
 
 admin.firestore().collection('trips')
-  .where('status', '==', 'published')
+  .where('status', '==', 'publisheddd')
   .orderBy('createAt', 'desc')
   .get()
   .then((querySnapshot) => {
