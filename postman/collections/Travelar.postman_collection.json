@@ -17,6 +17,20 @@
 			"collectionId": "8cc33d2d-d2cb-f67c-5732-fa7022bd71f4"
 		},
 		{
+			"name": "My Missions",
+			"description": "",
+			"collectionId": "8cc33d2d-d2cb-f67c-5732-fa7022bd71f4",
+			"order": [
+				"bdc839fb-b06a-89d5-2009-c22ce86d9d25",
+				"1c930bb8-cbc6-d567-f9f0-f9bfa1eea055",
+				"15dc728f-517c-5873-0090-878bb7a3cea3",
+				"8a2fa483-caa8-5548-a051-981639aad0d6"
+			],
+			"owner": "518131",
+			"folders_order": [],
+			"id": "e634e0f5-1cf5-0b2b-2030-d90ba0108730"
+		},
+		{
 			"name": "My Trips",
 			"description": "",
 			"collectionId": "8cc33d2d-d2cb-f67c-5732-fa7022bd71f4",
@@ -49,12 +63,51 @@
 	"folders_order": [
 		"530a9e0f-ba48-965f-d435-88dbf4f1ee8d",
 		"1efae11d-64f0-320b-cd6d-7364f92c7053",
-		"1568f8ef-d518-f758-94a9-3ab48bb11b76"
+		"1568f8ef-d518-f758-94a9-3ab48bb11b76",
+		"e634e0f5-1cf5-0b2b-2030-d90ba0108730"
 	],
 	"timestamp": 0,
 	"owner": "518131",
 	"public": false,
 	"requests": [
+		{
+			"id": "15dc728f-517c-5873-0090-878bb7a3cea3",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "",
+					"value": "",
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/myTrips/mission/verify",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "8cc33d2d-d2cb-f67c-5732-fa7022bd71f4",
+			"data": [],
+			"dataMode": "raw",
+			"name": "[admin] Verify Mission",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1550264073443,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "e634e0f5-1cf5-0b2b-2030-d90ba0108730",
+			"rawModeData": "{\n\t\"userId\": \"xwQtHnECtsWFxGQs7v6Bp9tLnRq1\",\n\t\"missionId\": \"v2qhSMNl5cS2AK48A44D\"\n}"
+		},
 		{
 			"id": "1b668b9b-a03a-5b03-5f22-7b77b34a5ed6",
 			"name": "Feature Trip",
@@ -72,6 +125,38 @@
 			"headerData": [],
 			"collection_id": "8cc33d2d-d2cb-f67c-5732-fa7022bd71f4",
 			"folder": "530a9e0f-ba48-965f-d435-88dbf4f1ee8d"
+		},
+		{
+			"id": "1c930bb8-cbc6-d567-f9f0-f9bfa1eea055",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/myTrips/mission/decline",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "8cc33d2d-d2cb-f67c-5732-fa7022bd71f4",
+			"data": [],
+			"dataMode": "raw",
+			"name": "[admin] Decline Mission",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1550264410314,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "e634e0f5-1cf5-0b2b-2030-d90ba0108730",
+			"rawModeData": "{\n\t\"userId\": \"xwQtHnECtsWFxGQs7v6Bp9tLnRq1\",\n\t\"missionId\": \"v2qhSMNl5cS2AK48A44D\"\n}"
 		},
 		{
 			"id": "2665521b-97b9-cb70-b37e-43bffacdb160",
@@ -138,24 +223,23 @@
 				}
 			],
 			"url": "{{host}}/myTrips",
+			"folder": "1568f8ef-d518-f758-94a9-3ab48bb11b76",
 			"queryParams": [],
+			"preRequestScript": null,
 			"pathVariables": {},
 			"pathVariableData": [],
-			"preRequestScript": null,
 			"method": "POST",
-			"collectionId": "8cc33d2d-d2cb-f67c-5732-fa7022bd71f4",
 			"data": [],
 			"dataMode": "raw",
-			"name": "Create My Trips",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1550240271314,
 			"version": 2,
-			"responses": [],
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"folder": "1568f8ef-d518-f758-94a9-3ab48bb11b76",
+			"time": 1550262161842,
+			"name": "Create My Trips",
+			"description": "",
+			"collectionId": "8cc33d2d-d2cb-f67c-5732-fa7022bd71f4",
+			"responses": [],
 			"rawModeData": "{\n\t\"tripId\": \"wAulUIYTmOcIH0pm86gW\"\n}"
 		},
 		{
@@ -177,22 +261,62 @@
 			"folder": "1efae11d-64f0-320b-cd6d-7364f92c7053"
 		},
 		{
+			"id": "8a2fa483-caa8-5548-a051-981639aad0d6",
+			"headers": "X-User: G2vmhpJf1gUIy0tVtgbpbSGw4Gw1\n",
+			"headerData": [
+				{
+					"key": "X-User",
+					"value": "G2vmhpJf1gUIy0tVtgbpbSGw4Gw1",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/myTrips/wAulUIYTmOcIH0pm86gW/missions/v2qhSMNl5cS2AK48A44D",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1550279582020,
+			"name": "{TEST} GET My Mission by ID",
+			"description": "",
+			"collectionId": "8cc33d2d-d2cb-f67c-5732-fa7022bd71f4",
+			"responses": []
+		},
+		{
 			"id": "99b62fae-3038-2bab-955f-191834983ddd",
+			"headers": "X-User: xwQtHnECtsWFxGQs7v6Bp9tLnRq1\n",
+			"headerData": [
+				{
+					"key": "X-User",
+					"value": "xwQtHnECtsWFxGQs7v6Bp9tLnRq1",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/trips/wAulUIYTmOcIH0pm86gW",
+			"folder": "530a9e0f-ba48-965f-d435-88dbf4f1ee8d",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1550256543799,
 			"name": "Get Trip by ID",
 			"description": "",
 			"collectionId": "8cc33d2d-d2cb-f67c-5732-fa7022bd71f4",
-			"method": "GET",
-			"headers": "",
-			"dataMode": "raw",
-			"data": [],
-			"rawModeData": "",
-			"url": "{{host}}/trips/wAulUIYTmOcIH0pm86gW",
 			"responses": [],
-			"pathVariableData": [],
-			"queryParams": [],
-			"headerData": [],
-			"collection_id": "8cc33d2d-d2cb-f67c-5732-fa7022bd71f4",
-			"folder": "530a9e0f-ba48-965f-d435-88dbf4f1ee8d"
+			"rawModeData": ""
 		},
 		{
 			"id": "a3cf1140-bc79-636a-bb8d-b13c96cb4267",
@@ -280,6 +404,41 @@
 			"headerData": [],
 			"collection_id": "8cc33d2d-d2cb-f67c-5732-fa7022bd71f4",
 			"folder": "1efae11d-64f0-320b-cd6d-7364f92c7053"
+		},
+		{
+			"id": "bdc839fb-b06a-89d5-2009-c22ce86d9d25",
+			"headers": "X-User: G2vmhpJf1gUIy0tVtgbpbSGw4Gw1\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "X-User",
+					"value": "G2vmhpJf1gUIy0tVtgbpbSGw4Gw1",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/myTrips/wAulUIYTmOcIH0pm86gW/missions/v2qhSMNl5cS2AK48A44D",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1550280267130,
+			"name": "Send Mission",
+			"description": "",
+			"collectionId": "8cc33d2d-d2cb-f67c-5732-fa7022bd71f4",
+			"responses": [],
+			"rawModeData": "{\n\t\"checkIn\": {\n\t\t\"userLatitude\": 13.7391976,\n\t\t\"userLogitude\": 100.5227214\n\t},\n\t\"photo\": {\n\t\t\"photoUrl\": \"https://firebasestorage.googleapis.com/v0/b/travela-dev-54075.appspot.com/o/myTrips%2F20190215_173550.jpg?alt=media&token=7f05951f-03c1-440a-9a7b-8d01964c66dc\"\n\t}\n}"
 		},
 		{
 			"id": "c2e83986-2f22-a9d6-a1bc-5a50d88661c3",

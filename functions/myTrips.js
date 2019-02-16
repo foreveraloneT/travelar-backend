@@ -14,16 +14,14 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.post('/', (req, res) => 
-  MyTripsService
-    .setAuthUser(req.get('X-User'))
+  MyTripsService.setAuthUser(req.get('X-User'))
     .create(req.body)
     .then(result => result.response())
     .then(response => res.send(response))
 )
 
 app.get('/', (req, res) =>
-  MyTripsService
-    .setAuthUser(req.get('X-User'))
+  MyTripsService.setAuthUser(req.get('X-User'))
     .get(req.query)
     .then(result => result.response())
     .then(response => res.send(response))
@@ -31,18 +29,32 @@ app.get('/', (req, res) =>
 
 // my mission
 
-// app.get('/:tripId/missions/all', (req, res) =>
-//   MissionsService.setModelDocRef(tripsCollectionRef.doc(req.params.tripId))
-//     .getAll()
-//     .then(result => result.response())
-//     .then(response => res.send(response))
-// )
+app.get('/:tripId/missions/:id', (req, res) => 
+  MyMissionsService.setAuthUser(req.get('X-User'))
+    .getOne({ missionId: req.params.id })
+    .then(result => result.response())
+    .then(response => res.send(response))
+)
 
-// app.get('/:tripId/missions/:id', (req, res) =>
-//   MissionsService.setModelDocRef(tripsCollectionRef.doc(req.params.tripId))
-//     .getById(req.params.id)
-//     .then(result => result.response())
-//     .then(response => res.send(response))
-// )
+app.put('/:tripId/missions/:id', (req, res) =>
+  MyMissionsService.setAuthUser(req.get('X-User'))
+    .send(req.params.id, req.body)
+    .then(result => result.response())
+    .then(response => res.send(response))
+)
+
+app.put('/mission/verify', (req, res) =>
+  MyMissionsService
+    .verifyPhoto(req.body)
+    .then(result => result.response())
+    .then(response => res.send(response))
+)
+
+app.put('/mission/decline', (req, res) =>
+  declinePhoto
+    .verifyPhoto(req.body)
+    .then(result => result.response())
+    .then(response => res.send(response))
+)
 
 module.exports = functions.https.onRequest(autoSlash(app))

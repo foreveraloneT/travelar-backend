@@ -16,17 +16,6 @@ class MyTripsService extends BaseService {
     this._Collection = MyTripsCollection
   }
 
-  // _createMyTrips(params) {
-  //   return TripsService.getById(params.tripId)
-  //     .then((tripEntity) => {
-  //       const enhanceParams = Object.assign({
-  //         userId: this.authUserId
-  //       }, omit(tripEntity.data, ['status']), params)
-    
-  //       return super.create(enhanceParams)
-  //     })
-  // }
-
   _createMyTrips(params) {
     let returnEntity = null
     return TripsService.getById(params.tripId)
