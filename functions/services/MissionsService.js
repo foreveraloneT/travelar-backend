@@ -10,6 +10,16 @@ class MissionsService extends BaseService {
     this._Entity = MissionsEntity
     this._Collection = MissionsCollection
   }
+
+  getById(id) {
+    return super.getById(id)
+      .then(entity => entity.setAuthUser(this.authUserId))
+  }
+
+  getAll() {
+    return super.getAll()
+      .then(collection => collection.setAuthUser(this.authUserId))
+  }
 }
 
 module.exports = new MissionsService

@@ -69,6 +69,7 @@ app.get('/:tripId/missions/all', (req, res) =>
 
 app.get('/:tripId/missions/:id', (req, res) =>
   MissionsService.setModelDocRef(tripsCollectionRef.doc(req.params.tripId))
+    .setAuthUser(req.get('X-User'))
     .getById(req.params.id)
     .then(result => result.response())
     .then(response => res.send(response))
